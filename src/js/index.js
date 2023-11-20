@@ -1,3 +1,4 @@
+// Імпортуємо необхідні стилі та залежності
 import '../css/style.css';
 import { PixabayAPI } from '../js/api';
 import createPhotoCard from '../templates/card-template.hbs';
@@ -13,13 +14,13 @@ const pixabayApi = new PixabayAPI();
 let gallery = new SimpleLightbox('.gallery a');
 
 let isLoading = false;
-let hasError = false; 
+let hasError = false;
 
 const handleSearchFoto = async ev => {
   ev.preventDefault();
   infiniteScrollContainer.innerHTML = '';
   pixabayApi.page = 1;
-  hasError = false; 
+  hasError = false;
 
   const searchItem = ev.target.elements['searchQuery'].value.trim();
 
@@ -55,7 +56,7 @@ async function searchGallery() {
     const maxPhotosPerPage = 40;
     if (data.totalHits > maxPhotosPerPage) {
       loadMoreImages();
-      window.addEventListener('scroll', loadMoreImages);
+      window.addEventListener('scroll', loadMoreImages); 
     }
   } catch (error) {
     console.log(error);
@@ -105,7 +106,6 @@ async function searchMorePhoto() {
   } finally {
     isLoading = false;
   }
-
-
-  formSearch.addEventListener('submit', handleSearchFoto);
 }
+
+formSearch.addEventListener('submit', handleSearchFoto);
