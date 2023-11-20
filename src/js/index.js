@@ -1,4 +1,3 @@
-// Імпортуємо необхідні стилі та залежності
 import '../css/style.css';
 import { PixabayAPI } from '../js/api';
 import createPhotoCard from '../templates/card-template.hbs';
